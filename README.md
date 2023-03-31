@@ -12,7 +12,7 @@
 
 ## Instalação
 
--Clone o repositório através da seguinte chave https: `https://github.com/tuliotrindade/desafio-inteligov.git`.
+-Clone o repositório através da seguinte chave ssh: `git@github.com:tuliotrindade/Teste-SaibWeb.git`.
 
 -Entre na pasta `Teste-SaibWeb` utilizando o seguinte comando na pasta raiz: `cd Teste-SaibWeb`
 
