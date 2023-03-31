@@ -28,7 +28,7 @@ export default function CreateOrEditForm({ id }) {
 
   const validateForm = () => {
     if (formData.nome?.length < 4) {
-      console.log("testeFormdata", formData);
+
       setRenderValidateMessage(true);
       setValidateFormMessage("O nome deve ter ao menos 4 caracteres.");
       return true;
