@@ -1,0 +1,125 @@
+form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+}
+
+.create-update-form-style {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 40px;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid #cfcfcf;
+  border-radius: 25px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  position: relative;
+  left: 0;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+  padding: 20px 0px;
+}
+
+
+input {
+  border: 2px solid #cfcfcf;
+}
+
+.input-container:nth-child(3) {
+  width: 43%;
+}
+
+.input-container:nth-child(4) {
+  width: 4%;
+}
+
+.buttons-group-style {
+  align-self: flex-end;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 50px;
+  margin-top: 80px;
+}
+
+button:nth-child(1) {
+  margin-right: 20px;
+}
+
+button {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #9389bd;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  width: 45%;
+  min-width: 80px;
+  max-width: 200px;
+  box-sizing: border-box;
+}
+
+button:hover {
+  opacity: 0.7;
+  transform: translateY(-1px);
+}
+
+button:active {
+  opacity: 0.7;
+  transform: translateY(0);
+}
+
+@media only screen and (max-width: 480px) {
+  .create-update-form-style {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: start;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .buttons-group-style {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .input-container:nth-child(4) {
+    width: 100%;
+  }
+  .input-container:nth-child(3) {
+    width: 100%;
+  }
+}
+
+/* Large screens */
+@media only screen and (min-width: 481px) and (max-width: 900px)  {
+  .input-container:nth-child(4) {
+    width: 49%;
+  }
+  .input-container:nth-child(3) {
+    width: 49%;
+  }
+}

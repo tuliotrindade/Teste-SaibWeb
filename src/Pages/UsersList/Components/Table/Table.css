@@ -1,0 +1,135 @@
+.table-style {
+  margin-top: 40px;
+  width: 90%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  border: 1px solid black;
+}
+
+table td:first-child {
+  width: 70px;
+}
+
+th,
+td {
+  padding: 10px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  text-align: left;
+}
+
+th {
+  background-color: #9389bd;
+}
+
+.table-plus-button {
+  display: inline-block;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+img:hover {
+  opacity: 0.7;
+}
+
+.actions-table {
+  display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 767px) {
+  .table-style table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .table-style table td,
+  .table-style table th {
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    border-bottom: 1px solid gray;
+    display: block;
+    text-align: center;
+  }
+
+  .table-style table td:first-of-type {
+    border-left: none;
+    width: auto;
+  }
+
+  .table-style table td:last-of-type {
+    border-right: none;
+  }
+
+  .table-style table td:before {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .table-style table td:nth-of-type(1):before {
+    content: "Ações";
+  }
+
+  .table-style table td:nth-of-type(2):before {
+    content: "Nome";
+  }
+
+  .table-style table td:nth-of-type(3):before {
+    content: "Endereço";
+  }
+
+  .table-style table td:nth-of-type(4):before {
+    content: "Cidade";
+  }
+
+  .table-style table td:nth-of-type(5):before {
+    content: "UF";
+  }
+
+  .table-style table td:nth-of-type(6):before {
+    content: "Telefone";
+  }
+
+  .table-style table td:nth-of-type(7):before {
+    content: "E-mail";
+  }
+
+  .table-style table tr:nth-of-type(even) {
+    background-color: #f2f2f2;
+  }
+
+  .table-style table td:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .actions-table {
+    margin-left: 50px;
+  }
+
+  a {
+    display: inline-block;
+  }
+  
+  a img {
+    vertical-align: middle;
+  }
+
+}
+
