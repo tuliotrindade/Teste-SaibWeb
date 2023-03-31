@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Table.css";
 import PlusIcon from "../../../../assets/plusPng.png";
 import EditIcon from "../../../../assets/editPNG.png";
 import RemoveIcon from "../../../../assets/minusPNG.png";
 import { Link } from "react-router-dom";
 import DeleteModal from "../../../../Components/DeleteModal";
+import SearchBar from "../SearchBar";
+import { ApiContext } from "../../../../Providers/ApiProviders";
 
-const Table = ({ data }) => {
+const Table = () => {
+  const { data, getAllRegisters, filteredData } = useContext(ApiContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState();
 
@@ -27,7 +30,9 @@ const Table = ({ data }) => {
   }
 
   return (
+
     <div className="table-style">
+      <SearchBar data={data}/>
       <table>
         <thead>
           <tr>
@@ -47,7 +52,7 @@ const Table = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data?.map((item) => (
+          {(filteredData.length > 0 ? filteredData : data).map((item) => (
             <tr key={item.TECL_ID}>
               <td>
                 <div className="actions-table">

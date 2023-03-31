@@ -6,7 +6,7 @@ import './UsersList.css';
 
 
 export default function UsersList() {
-  const { data, getAllRegisters } = useContext(ApiContext);
+  const { getAllRegisters } = useContext(ApiContext);
 
   useEffect( () => {
     getAllRegisters()
@@ -15,7 +15,7 @@ export default function UsersList() {
   return (
     <div className="users-list-style">
       <Header title='Teste ReactJS - SaibWeb'/>
-      <Table data={data}/>
+      <Table />
     </div>
   )
 }

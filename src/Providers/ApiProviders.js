@@ -6,6 +6,7 @@ const ApiContext = React.createContext();
 
 const ApiProvider = ({ children }) => {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   const getAllRegisters = async () => {
     const result = await axios.get(BASE_ENDPOINT + "s");
@@ -58,6 +59,8 @@ const ApiProvider = ({ children }) => {
         deleteRegister,
         editRegister,
         getOneRegister,
+        filteredData,
+        setFilteredData,
       }}
     >
       {children}
