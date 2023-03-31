@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import axios from "axios";
 import { BASE_ENDPOINT } from "../Constants/endpoints";
 
@@ -8,10 +8,10 @@ const ApiProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
-  const getAllRegisters = async () => {
+  const getAllRegisters = useCallback(async () => {
     const result = await axios.get(BASE_ENDPOINT + "s");
     setData(result.data.data);
-  };
+  }, []);
 
   const getOneRegister = async (id) => {
     const result = await axios.get(BASE_ENDPOINT + `/${id}`);

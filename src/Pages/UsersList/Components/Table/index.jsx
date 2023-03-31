@@ -9,7 +9,7 @@ import SearchBar from "../SearchBar";
 import { ApiContext } from "../../../../Providers/ApiProviders";
 
 const Table = () => {
-  const { data, getAllRegisters, filteredData } = useContext(ApiContext);
+  const { data, filteredData } = useContext(ApiContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState();
 
@@ -18,28 +18,38 @@ const Table = () => {
   };
 
   const formatPhoneNumber = (phoneNumber) => {
-    const cleaned = ('' + phoneNumber).replace(/\D/g, '');
+    const cleaned = ("" + phoneNumber).replace(/\D/g, "");
     const match = cleaned.match(/^(\d{2})(\d{4,5})(\d{4})$/);
     if (match) {
       if (match[2].length === 4) {
-        return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+        return "(" + match[1] + ") " + match[2] + "-" + match[3];
       }
-      return '(' + match[1] + ') ' + match[2].substr(0, 5) + '-' + match[2].substr(5) + match[3];
+      return (
+        "(" +
+        match[1] +
+        ") " +
+        match[2].substr(0, 5) +
+        "-" +
+        match[2].substr(5) +
+        match[3]
+      );
     }
     return phoneNumber;
-  }
+  };
 
   return (
-
     <div className="table-style">
-      <SearchBar data={data}/>
+      <SearchBar data={data} />
       <table>
         <thead>
           <tr>
             <th>
               <div className="plus-icon">
                 <Link to={"/create-or-edit"} state={{ title: "Novo Registro" }}>
-                  <img src={PlusIcon} alt="botão para adicionar novo registro" />
+                  <img
+                    src={PlusIcon}
+                    alt="botão para adicionar novo registro"
+                  />
                 </Link>
               </div>
             </th>
@@ -64,7 +74,10 @@ const Table = () => {
                     }}
                     alt="Botão para remover registro"
                   />
-                  <Link to={"/create-or-edit"} state={{ title: "Editar Registro", id: item.TECL_ID }}>
+                  <Link
+                    to={"/create-or-edit"}
+                    state={{ title: "Editar Registro", id: item.TECL_ID }}
+                  >
                     <img src={EditIcon} alt="Botão para editar registro" />
                   </Link>
                 </div>

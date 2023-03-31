@@ -13,7 +13,7 @@ export default function DeleteModal({ onClose, children, id }) {
   return (
     <div className="overlay">
       <div className="modal-content">
-        <p>{children}</p>
+        {children}
         <div className="modal-actions">
           <button
             className="modal-button"
