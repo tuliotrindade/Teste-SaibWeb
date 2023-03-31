@@ -61,37 +61,48 @@ const Table = () => {
             <th>E-mail</th>
           </tr>
         </thead>
-        <tbody>
-          {(filteredData.length > 0 ? filteredData : data).map((item) => (
-            <tr key={item.TECL_ID}>
-              <td>
-                <div className="actions-table">
-                  <img
-                    src={RemoveIcon}
-                    onClick={() => {
-                      setSelectedId(item.TECL_ID);
-                      setIsModalOpen(item);
-                    }}
-                    alt="Botão para remover registro"
-                  />
-                  <Link
-                    to={"/create-or-edit"}
-                    state={{ title: "Editar Registro", id: item.TECL_ID }}
-                  >
-                    <img src={EditIcon} alt="Botão para editar registro" />
-                  </Link>
-                </div>
+        {filteredData && filteredData.length > 0 ? (
+          <tbody>
+            {filteredData.map((item) => (
+              <tr key={item.TECL_ID}>
+                <td>
+                  <div className="actions-table">
+                    <img
+                      src={RemoveIcon}
+                      onClick={() => {
+                        setSelectedId(item.TECL_ID);
+                        setIsModalOpen(item);
+                      }}
+                      alt="Botão para remover registro"
+                    />
+                    <Link
+                      to={"/create-or-edit"}
+                      state={{ title: "Editar Registro", id: item.TECL_ID }}
+                    >
+                      <img src={EditIcon} alt="Botão para editar registro" />
+                    </Link>
+                  </div>
+                </td>
+                <td>{item.TECL_NOME}</td>
+                <td>{item.TECL_ENDERECO}</td>
+                <td>{item.TECL_CIDADE}</td>
+                <td>{item.TECL_UF}</td>
+                <td>{formatPhoneNumber(item.TECL_TELEFONE)}</td>
+                <td>--</td>
+              </tr>
+            ))}
+          </tbody>
+        ) : (
+          <tbody>
+            <tr>
+              <td colSpan="7" style={{ textAlign: "center" }}>
+                {filteredData ? "Sem registros com esse nome" : "Carregando..."}
               </td>
-              <td>{item.TECL_NOME}</td>
-              <td>{item.TECL_ENDERECO}</td>
-              <td>{item.TECL_CIDADE}</td>
-              <td>{item.TECL_UF}</td>
-              <td>{formatPhoneNumber(item.TECL_TELEFONE)}</td>
-              <td>--</td>
             </tr>
-          ))}
-        </tbody>
+          </tbody>
+        )}
       </table>
+
       {isModalOpen && (
         <DeleteModal onClose={openCloseModal} id={selectedId}>
           <p className="modal-text">

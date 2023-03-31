@@ -32,7 +32,6 @@ label {
   padding: 20px 0px;
 }
 
-
 input {
   border: 2px solid #cfcfcf;
 }
@@ -90,7 +89,7 @@ button:active {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-items: start;
+    align-items: flex-start;
   }
 
   .input-container {
@@ -115,7 +114,7 @@ button:active {
 }
 
 /* Large screens */
-@media only screen and (min-width: 481px) and (max-width: 900px)  {
+@media only screen and (min-width: 481px) and (max-width: 900px) {
   .input-container:nth-child(4) {
     width: 49%;
   }
